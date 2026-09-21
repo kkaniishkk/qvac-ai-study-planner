@@ -1,0 +1,1 @@
+# QVAC AI Study Planner\n\nUses loadModel() and completion() to create study schedules.

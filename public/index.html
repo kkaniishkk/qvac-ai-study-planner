@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Study Planner</title>
+</head>
+<body>
+
+<h1>AI Study Planner</h1>
+
+<p>Days Until Exam</p>
+<input id="days" value="30">
+
+<br><br>
+
+<p>Subjects</p>
+
+<textarea id="subjects" rows="5" cols="50">
+JavaScript
+React
+Node.js
+DSA
+</textarea>
+
+<br><br>
+
+<button onclick="generatePlan()">
+Generate Study Plan
+</button>
+
+<hr>
+
+<pre id="output"></pre>
+
+<script>
+async function generatePlan() {
+
+  document.getElementById("output").textContent =
+    "Generating...";
+
+  const response = await fetch("/api/plan", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      examDays: document.getElementById("days").value,
+      subjects: document.getElementById("subjects").value
+    })
+  });
+
+  const data = await response.json();
+
+  document.getElementById("output").textContent =
+    data.plan;
+}
+</script>
+
+</body>
+</html>

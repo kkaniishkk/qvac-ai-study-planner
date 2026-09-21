@@ -1,0 +1,12 @@
+{
+  "name": "qvac-ai-study-planner",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@qvac/sdk": "^0.19.1",
+    "express": "^4.21.0"
+  }
+}
